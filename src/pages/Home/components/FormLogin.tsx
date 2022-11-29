@@ -7,6 +7,7 @@ import {
   InputRightElement,
   Button,
 } from "@chakra-ui/react";
+import { CiRead, CiUnread } from "react-icons/ci";
 import { Input } from "components/Input";
 
 export function FormLogin() {
@@ -16,19 +17,24 @@ export function FormLogin() {
   return (
     <VStack as="form" gap="30px">
       <FormControl maxW={400}>
-        <FormLabel px="4">E-mail</FormLabel>
+        <FormLabel px="4" color="#333333">
+          E-mail
+        </FormLabel>
         <Input />
       </FormControl>
       <FormControl maxW={400}>
-        <FormLabel px="4">Senha</FormLabel>
+        <FormLabel px="4" color="#333333">
+          Senha
+        </FormLabel>
         <InputGroup>
           <Input type={show ? "text" : "password"} />
-          <InputRightElement width="4.5rem">
-            <Button
-              h="1.75rem"
-              size="sm"
-              onClick={handleClick}>
-              {show ? "Hide" : "Show"}
+          <InputRightElement width="3.5rem">
+            <Button size="sm" onClick={handleClick}>
+              {show ? (
+                <CiRead size={25} />
+              ) : (
+                <CiUnread size={25} />
+              )}
             </Button>
           </InputRightElement>
         </InputGroup>
@@ -39,7 +45,11 @@ export function FormLogin() {
         fontSize="xl"
         bg="#5A4CA7"
         color="#FFF"
-        fontWeight="normal">
+        fontWeight="normal"
+        h="35px"
+        _hover={{
+          bg: "#3e1ef5",
+        }}>
         Entrar
       </Button>
     </VStack>
