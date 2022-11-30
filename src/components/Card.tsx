@@ -108,6 +108,7 @@ export interface CardProps {
 export function Card({ heading, body, footer }: CardProps) {
   return (
     <ChakraCard
+      bg="#FFF"
       w={220}
       h={170}
       flex="none"
