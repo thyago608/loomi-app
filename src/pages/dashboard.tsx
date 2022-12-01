@@ -8,6 +8,11 @@ import {
 } from "@chakra-ui/react";
 import { Card } from "components/Card";
 import { cards } from "mocks/card";
+import { GraphForMonth } from "components/Dashboard/GraphForMonth";
+import { GraphRealProfit } from "components/Dashboard/GraphRealProfit";
+import { GraphTransactionsPerCustomer } from "components/Dashboard/GraphTransactionsPerCustomer";
+import { GraphGender } from "components/Dashboard/GraphGender";
+import { GraphForAge } from "components/Dashboard/GraphForAge";
 
 export default function Dashboard() {
   return (
@@ -30,7 +35,7 @@ export default function Dashboard() {
           ml="50px">
           Início
         </Heading>
-        <SimpleGrid
+        {/* <SimpleGrid
           w="100%"
           flex="none"
           columns={6}
@@ -45,7 +50,13 @@ export default function Dashboard() {
               footer={card.footer}
             />
           ))}
-        </SimpleGrid>
+        </SimpleGrid> */}
+        {/* <GraphForMonth /> */}
+        {/* <GraphRealProfit /> */}
+
+        {/* <GraphTransactionsPerCustomer /> */}
+        {/* <GraphGender /> */}
+        <GraphForAge />
       </VStack>
     </Box>
   );

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Flex, VStack, Box } from "@chakra-ui/react";
-import { Logo } from "./Home/components/Logo";
-import { FormLogin } from "./Home/components/FormLogin";
+import { Logo } from "components/Home/Logo";
+import { FormLogin } from "components/Home/FormLogin";
 
 export default function Home() {
   return (
