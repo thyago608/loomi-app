@@ -13,6 +13,7 @@ import { GraphRealProfit } from "components/Dashboard/GraphRealProfit";
 import { GraphTransactionsPerCustomer } from "components/Dashboard/GraphTransactionsPerCustomer";
 import { GraphGender } from "components/Dashboard/GraphGender";
 import { GraphForAge } from "components/Dashboard/GraphForAge";
+import { ProductsTable } from "components/Dashboard/ProductsTable";
 
 export default function Dashboard() {
   return (
@@ -56,7 +57,8 @@ export default function Dashboard() {
 
         {/* <GraphTransactionsPerCustomer /> */}
         {/* <GraphGender /> */}
-        <GraphForAge />
+        {/* <GraphForAge /> */}
+        <ProductsTable />
       </VStack>
     </Box>
   );
