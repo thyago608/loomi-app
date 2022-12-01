@@ -32,7 +32,6 @@ function CardHeader({ type, title, subtitle }: Heading) {
         size="sm"
         color="#4E5D66"
         mb={2}
-        fontFamily="Ubuntu"
         fontWeight="bold">
         {title}
       </Heading>
@@ -43,7 +42,6 @@ function CardHeader({ type, title, subtitle }: Heading) {
         color={
           type === "porcentage" ? "#109E8E" : "#D6628E"
         }
-        fontFamily="Ubuntu"
         fontSize="sm"
         fontWeight="bold"
         boxShadow="base"
@@ -60,9 +58,7 @@ function CardHeader({ type, title, subtitle }: Heading) {
 function CardBody({ type, content }: Body) {
   return (
     <ChakraCardBody p={0}>
-      <Text
-        color={type === "base" ? "#109E8E" : "#D6628E"}
-        fontFamily="Ubuntu">
+      <Text color={type === "base" ? "#109E8E" : "#D6628E"}>
         {content}
       </Text>
     </ChakraCardBody>
@@ -73,22 +69,14 @@ function CardFooter({ type, label, amount }: Footer) {
   return (
     <ChakraCardFooter p={0}>
       {type === "money" ? (
-        <Flex
-          as="p"
-          color="#4E5D66"
-          gap="10px"
-          fontFamily="Ubuntu">
+        <Flex as="p" color="#4E5D66" gap="10px">
           R$
           <Text as="span" fontWeight="bold">
             {amount}
           </Text>
         </Flex>
       ) : (
-        <Flex
-          as="p"
-          color="#4E5D66"
-          gap="10px"
-          fontFamily="Ubuntu">
+        <Flex as="p" color="#4E5D66" gap="10px">
           <Text as="span" fontWeight="bold">
             {amount}
           </Text>
@@ -108,11 +96,11 @@ export interface CardProps {
 export function Card({ heading, body, footer }: CardProps) {
   return (
     <ChakraCard
+      flex="none"
+      variant="elevated"
       bg="#FFF"
       w={220}
       h={170}
-      flex="none"
-      variant="elevated"
       gap={3}
       px={3}
       py={4}

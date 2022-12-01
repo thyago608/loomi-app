@@ -5,11 +5,7 @@ import { FormLogin } from "components/Home/FormLogin";
 
 export default function Home() {
   return (
-    <Box
-      backgroundImage="url('/background.svg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      h="100vh">
+    <Box h="100vh">
       <Head>
         <title>Loomi | Home</title>
       </Head>
@@ -18,7 +14,7 @@ export default function Home() {
         w={894}
         h="100vh"
         mx="auto"
-        background="#FFF"
+        bg="#FFF"
         justify="center"
         align="center">
         <VStack as="section" gap="50px">

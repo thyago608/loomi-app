@@ -17,14 +17,7 @@ import { ProductsTable } from "components/Dashboard/ProductsTable";
 
 export default function Dashboard() {
   return (
-    <Box
-      as="main"
-      backgroundImage="url('/background.svg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      pt="50px"
-      px="100px"
-      h="100vh">
+    <Box as="main" pt="50px" px="100px" h="100vh">
       <Head>
         <title>Loomi | Dashboard</title>
       </Head>

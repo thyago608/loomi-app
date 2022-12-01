@@ -13,7 +13,6 @@ const options: ApexOptions = {
       },
     },
     foreColor: "#111",
-    fontFamily: "Ubuntu",
     background: "#FFF",
     toolbar: {
       show: false,
@@ -22,7 +21,6 @@ const options: ApexOptions = {
   title: {
     text: "Transações por idades",
     style: {
-      fontFamily: "Ubuntu",
       fontSize: "16",
       color: "#333333",
     },

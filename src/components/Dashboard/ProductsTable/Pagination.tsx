@@ -1,8 +1,5 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
-import {
-  FiChevronLeft,
-  FiChevronRight,
-} from "react-icons/fi";
+import { CaretLeft, CaretRight } from "phosphor-react";
 
 export function Pagination() {
   return (
@@ -12,7 +9,7 @@ export function Pagination() {
       </Flex>
       <Flex gap={2}>
         <Button
-          leftIcon={<FiChevronLeft size={18} />}
+          leftIcon={<CaretLeft size={18} weight="bold" />}
           minWidth="20px"
           w="30px"
           h="30px"
@@ -20,7 +17,7 @@ export function Pagination() {
           iconSpacing={0}
         />
         <Button
-          leftIcon={<FiChevronRight size={18} />}
+          leftIcon={<CaretRight size={18} weight="bold" />}
           minWidth="20px"
           w="30px"
           h="30px"

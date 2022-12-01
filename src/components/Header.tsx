@@ -9,7 +9,8 @@ export function Header() {
       justify="space-between"
       py={2}
       px={10}
-      boxShadow="md">
+      boxShadow="md"
+      bg="#FFF">
       <Link href="/">
         <Image
           src="/loomi-logo.svg"

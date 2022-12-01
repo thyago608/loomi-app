@@ -4,7 +4,7 @@ import { Check } from "phosphor-react";
 
 export function TBodyItem() {
   return (
-    <Tr color="#333333" fontFamily="Ubuntu">
+    <Tr>
       <Td>
         <Flex align="center" gap={2}>
           <Image
@@ -23,9 +23,7 @@ export function TBodyItem() {
           bg="#d5d8da"
           rounded="full"
           px={2}
-          py={1}
-          color="#333333"
-          fontFamily="Ubuntu">
+          py={1}>
           banco
         </Text>
         <Text
@@ -33,9 +31,7 @@ export function TBodyItem() {
           bg="#d5d8da"
           rounded="full"
           px={2}
-          py={1}
-          color="#333333"
-          fontFamily="Ubuntu">
+          py={1}>
           sem braço
         </Text>
         <Text
@@ -43,9 +39,7 @@ export function TBodyItem() {
           bg="#d5d8da"
           rounded="full"
           px={2}
-          py={1}
-          color="#333333"
-          fontFamily="Ubuntu">
+          py={1}>
           sala de jantar
         </Text>
         <Text
@@ -53,13 +47,11 @@ export function TBodyItem() {
           bg="#d5d8da"
           rounded="full"
           px={2}
-          py={1}
-          color="#333333"
-          fontFamily="Ubuntu">
+          py={1}>
           madeira natural
         </Text>
       </Td>
-      <Td color="#333333" fontFamily="Ubuntu">
+      <Td>
         <Flex gap={2}>
           Ativo
           <Check size={20} weight="bold" color="#5A4CA7" />
