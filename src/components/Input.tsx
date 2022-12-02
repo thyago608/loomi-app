@@ -11,7 +11,6 @@ export function Input(props: ChakraInputProps) {
       color="#333333"
       p="4"
       h="45px"
-      fontFamily="Ubuntu"
       fontSize="xl"
       {...props}
     />

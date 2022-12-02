@@ -41,7 +41,7 @@ export function GraphGender() {
       series={series}
       type="donut"
       width={400}
-      height={200}
+      height={250}
     />
   );
 }

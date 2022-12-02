@@ -1,13 +1,23 @@
 import { extendTheme } from "@chakra-ui/react";
 
+const breakpoints = {
+  sm: "320px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1200px",
+  "2xl": "1920px",
+};
+
 export const theme = extendTheme({
+  breakpoints,
   styles: {
     global: {
       body: {
         color: "#333333",
         backgroundImage: "url('/background.svg')",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        backgroundRepeat: "repeat",
+        backdropFilter: "brightness(0.96)",
       },
     },
   },

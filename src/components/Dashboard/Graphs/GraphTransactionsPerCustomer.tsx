@@ -46,7 +46,7 @@ export function GraphTransactionsPerCustomer() {
       series={series}
       type="donut"
       width={400}
-      height={200}
+      height={400}
     />
   );
 }

@@ -16,6 +16,13 @@ export function ProductsTable() {
           <THead />
           <Tbody>
             <TBodyItem />
+            <TBodyItem />
+            <TBodyItem />
+            <TBodyItem />
+            <TBodyItem />
+            <TBodyItem />
+            <TBodyItem />
+            <TBodyItem />
           </Tbody>
         </Table>
       </TableContainer>

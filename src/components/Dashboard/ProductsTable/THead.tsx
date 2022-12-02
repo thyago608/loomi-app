@@ -16,7 +16,7 @@ export function THead() {
         <Th
           bg="#4E5D66"
           color="#FFF"
-          borderStartRadius="9px">
+          borderStartRadius="md">
           Cores
         </Th>
         <Th
@@ -45,7 +45,7 @@ export function THead() {
           }}>
           Especificações
         </Th>
-        <Th bg="#4E5D66" color="#FFF" borderEndRadius="9px">
+        <Th bg="#4E5D66" color="#FFF" borderEndRadius="md">
           Status
         </Th>
       </Tr>
