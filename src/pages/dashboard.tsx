@@ -13,13 +13,9 @@ import {
 } from "@chakra-ui/react";
 import { Card } from "components/Card";
 import { cards } from "mocks/card";
-import { Carrousel } from "components/Dashboard/Carousel";
+import { Carrousel } from "components/Carousel";
 import { MagnifyingGlass } from "phosphor-react";
-import { GraphTransactionsPerCustomer } from "components/Dashboard/Graphs/GraphTransactionsPerCustomer";
-import { GraphGender } from "components/Dashboard/Graphs/GraphGender";
-import { GraphForAge } from "components/Dashboard/Graphs/GraphForAge";
-import { ProductsTable } from "components/Dashboard/ProductsTable";
-import { Graph } from "components/Dashboard/Graphs";
+import { Graph } from "components/Graph";
 import {
   graphRealProfitOptions,
   graphRealProfitSeries,
@@ -32,6 +28,8 @@ import {
   graphGenderOptions,
   graphGenderSeries,
 } from "utils/graphs";
+import { ProductsTable } from "components/pages/Dashboard/ProductsTable";
+
 export default function Dashboard() {
   const [isLargerThan1920] = useMediaQuery(
     "(min-width: 1920px)"

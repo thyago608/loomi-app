@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 import { Link, ChakraProps } from "@chakra-ui/react";
 import Image from "next/image";
-import styles from "./SidebarItem.module.css";
 
 interface SidebarItemProps extends ChakraProps {
   icon: string;
@@ -25,7 +24,6 @@ export function SidebarItem({
         alt=""
         width={35}
         height={35}
-        className={styles.icon}
       />
     </Link>
   );
