@@ -57,16 +57,18 @@ export function Carrousel({
           <Button
             onClick={handleLeftClick}
             title="previous"
-            leftIcon={<CaretLeft size={40} weight="bold" />}
+            rounded="full"
+            leftIcon={<CaretLeft size={30} weight="bold" />}
             bg="none"
             iconSpacing={0}
           />
           <Button
             onClick={handleRightClick}
             title="next"
+            rounded="full"
             bg="none"
             leftIcon={
-              <CaretRight size={40} weight="bold" />
+              <CaretRight size={30} weight="bold" />
             }
             iconSpacing={0}
           />

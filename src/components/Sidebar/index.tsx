@@ -16,53 +16,52 @@ import {
 } from "phosphor-react";
 import { SidebarItem } from "./SidebarItem";
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 const ICONS = [
   {
-    id: 1,
     icon: <HouseSimple size={25} color="#bebbbb" />,
     path: "/dashboard",
+    name: "Início",
   },
   {
-    id: 2,
     icon: <HouseSimple size={25} color="#bebbbb" />,
-    path: "/",
+    path: "/addProduct",
+    name: "Adicionar Produto",
   },
   {
-    id: 3,
     icon: <Wrench size={25} color="#bebbbb" />,
     path: "/",
+    name: "Ajustes de perfil",
   },
   {
-    id: 4,
     icon: <Truck size={25} color="#bebbbb" />,
     path: "/",
+    name: "Entrega",
   },
   {
-    id: 5,
     icon: <ShoppingCartSimple size={25} color="#bebbbb" />,
     path: "/",
+    name: "Carrinho",
   },
   {
-    id: 6,
     icon: <ShoppingCartSimple size={25} color="#bebbbb" />,
     path: "/",
+    name: "Compras",
   },
   {
-    id: 7,
     icon: <ChatCentered size={25} color="#bebbbb" />,
     path: "/",
+    name: "Chat",
   },
   {
-    id: 8,
     icon: <User size={25} color="#bebbbb" />,
     path: "/",
+    name: "Perfil",
   },
   {
-    id: 9,
     icon: <Nut size={25} color="#bebbbb" />,
     path: "/",
+    name: "Configurações de conta",
   },
 ];
 
@@ -72,8 +71,6 @@ export function Sidebar() {
   const [isLargerThan1440] = useMediaQuery(
     "(min-width: 1440px)"
   );
-
-  const { asPath } = useRouter();
 
   function handleOpenSidebar() {
     setIsOpenSidebar((oldState) => !oldState);
@@ -105,12 +102,11 @@ export function Sidebar() {
       </Box>
       {(isOpenSidebar || isLargerThan1440) && (
         <VStack gap={2}>
-          {ICONS.map((icon) => (
+          {ICONS.map((item) => (
             <SidebarItem
-              key={icon.id}
-              icon={icon.icon}
-              path={icon.path}
-              active={asPath === icon.path}
+              key={item.name}
+              href={item.path}
+              icon={item.icon}
             />
           ))}
         </VStack>
