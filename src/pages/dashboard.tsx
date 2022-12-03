@@ -35,6 +35,10 @@ export default function Dashboard() {
     "(min-width: 1920px)"
   );
 
+  const [isLargerThan1440] = useMediaQuery(
+    "(min-width: 1440px)"
+  );
+
   return (
     <Box
       as="main"
@@ -95,7 +99,8 @@ export default function Dashboard() {
           flex="none"
           gap="30px"
           justifyItems="center">
-          <Carrousel>
+          <Carrousel
+            arrows={isLargerThan1440 ? false : true}>
             <Graph
               type="bar"
               width={400}

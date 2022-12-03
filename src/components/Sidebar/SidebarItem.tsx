@@ -1,30 +1,30 @@
 import NextLink from "next/link";
 import { Link, ChakraProps } from "@chakra-ui/react";
-import Image from "next/image";
+import { ReactNode } from "react";
 
 interface SidebarItemProps extends ChakraProps {
-  icon: string;
   path: string;
+  icon: ReactNode;
+  active?: boolean;
 }
 
 export function SidebarItem({
   icon,
   path,
+  active,
   ...rest
 }: SidebarItemProps) {
   return (
     <Link
       as={NextLink}
+      p={2}
       href={path}
-      {...rest}
       display="flex"
-      justifyContent="center">
-      <Image
-        src={`/icons/${icon}.svg`}
-        alt=""
-        width={35}
-        height={35}
-      />
+      justifyContent="center"
+      borderRadius="md"
+      bg={active ? "#5A4CA7" : "#FFF"}
+      {...rest}>
+      {icon}
     </Link>
   );
 }

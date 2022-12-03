@@ -5,29 +5,31 @@ const Charts = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-type GraphProps = {
+type GraphType =
+  | "line"
+  | "area"
+  | "bar"
+  | "histogram"
+  | "pie"
+  | "donut"
+  | "radialBar"
+  | "scatter"
+  | "bubble"
+  | "heatmap"
+  | "candlestick"
+  | "boxPlot"
+  | "radar"
+  | "polarArea"
+  | "rangeBar"
+  | "treemap";
+
+interface GraphProps {
   width: number;
   height: number;
   options: ApexOptions;
   series: ApexAxisChartSeries | ApexNonAxisChartSeries;
-  type:
-    | "line"
-    | "area"
-    | "bar"
-    | "histogram"
-    | "pie"
-    | "donut"
-    | "radialBar"
-    | "scatter"
-    | "bubble"
-    | "heatmap"
-    | "candlestick"
-    | "boxPlot"
-    | "radar"
-    | "polarArea"
-    | "rangeBar"
-    | "treemap";
-};
+  type: GraphType;
+}
 
 export function Graph({
   width,

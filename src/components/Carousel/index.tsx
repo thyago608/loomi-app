@@ -9,10 +9,12 @@ import styles from "./styles.module.css";
 
 interface CarrouselProps extends ChakraProps {
   children: ReactNode;
+  arrows?: boolean;
 }
 
 export function Carrousel({
   children,
+  arrows = true,
   ...rest
 }: CarrouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -46,26 +48,30 @@ export function Carrousel({
         {...rest}>
         {children}
       </Flex>
-      <Flex
-        w="100%"
-        justify="space-between"
-        position="absolute"
-        top="30%">
-        <Button
-          onClick={handleLeftClick}
-          title="previous"
-          leftIcon={<CaretLeft size={40} weight="bold" />}
-          bg="none"
-          iconSpacing={0}
-        />
-        <Button
-          onClick={handleRightClick}
-          title="next"
-          bg="none"
-          leftIcon={<CaretRight size={40} weight="bold" />}
-          iconSpacing={0}
-        />
-      </Flex>
+      {arrows && (
+        <Flex
+          w="100%"
+          justify="space-between"
+          position="absolute"
+          top="30%">
+          <Button
+            onClick={handleLeftClick}
+            title="previous"
+            leftIcon={<CaretLeft size={40} weight="bold" />}
+            bg="none"
+            iconSpacing={0}
+          />
+          <Button
+            onClick={handleRightClick}
+            title="next"
+            bg="none"
+            leftIcon={
+              <CaretRight size={40} weight="bold" />
+            }
+            iconSpacing={0}
+          />
+        </Flex>
+      )}
     </Flex>
   );
 }
