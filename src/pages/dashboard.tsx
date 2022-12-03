@@ -15,25 +15,35 @@ import { Card } from "components/Card";
 import { cards } from "mocks/card";
 import { Carrousel } from "components/Dashboard/Carousel";
 import { MagnifyingGlass } from "phosphor-react";
-import { GraphForMonth } from "components/Dashboard/Graphs/GraphForMonth";
-import { GraphRealProfit } from "components/Dashboard/Graphs/GraphRealProfit";
 import { GraphTransactionsPerCustomer } from "components/Dashboard/Graphs/GraphTransactionsPerCustomer";
 import { GraphGender } from "components/Dashboard/Graphs/GraphGender";
 import { GraphForAge } from "components/Dashboard/Graphs/GraphForAge";
 import { ProductsTable } from "components/Dashboard/ProductsTable";
-
+import { Graph } from "components/Dashboard/Graphs";
+import {
+  graphRealProfitOptions,
+  graphRealProfitSeries,
+  GraphTransactionsPerCustomerOptions,
+  GraphTransactionsPerCustomerSeries,
+  graphForAgeOptions,
+  graphForAgeSeries,
+  graphForMonthOptions,
+  graphForMonthSeries,
+  graphGenderOptions,
+  graphGenderSeries,
+} from "utils/graphs";
 export default function Dashboard() {
-  const [isLargerThan1440] = useMediaQuery(
-    "(min-width: 1440px)"
+  const [isLargerThan1920] = useMediaQuery(
+    "(min-width: 1920px)"
   );
 
   return (
     <Box
       as="main"
-      maxWidth={1600}
-      mx="auto"
-      my={20}
-      pl="200px">
+      maxWidth={isLargerThan1920 ? 1620 : 1350}
+      my={{ base: "120px", "2xl": "90px" }}
+      ml={{ base: 0, "2xl": "100px" }}
+      px={4}>
       <Head>
         <title>Loomi | Dashboard</title>
       </Head>
@@ -43,7 +53,7 @@ export default function Dashboard() {
             Início
           </Heading>
         </Box>
-        {isLargerThan1440 ? (
+        {isLargerThan1920 ? (
           <SimpleGrid
             w="100%"
             columns={6}
@@ -85,12 +95,31 @@ export default function Dashboard() {
         <Flex
           w="100%"
           flex="none"
-          gap="10px"
-          justifyItems="center"
-          overflowX="auto">
-          <GraphForMonth />
-          <GraphRealProfit />
-          <GraphRealProfit />
+          gap="30px"
+          justifyItems="center">
+          <Carrousel>
+            <Graph
+              type="bar"
+              width={400}
+              height={250}
+              options={graphForMonthOptions}
+              series={graphForMonthSeries}
+            />
+            <Graph
+              type="bar"
+              width={350}
+              height={250}
+              options={graphRealProfitOptions}
+              series={graphRealProfitSeries}
+            />
+            <Graph
+              type="bar"
+              width={350}
+              height={250}
+              options={graphRealProfitOptions}
+              series={graphRealProfitSeries}
+            />
+          </Carrousel>
         </Flex>
       </VStack>
 
@@ -104,7 +133,7 @@ export default function Dashboard() {
             Funil de conversão
           </Heading>
         </Box>
-        {isLargerThan1440 ? (
+        {isLargerThan1920 ? (
           <SimpleGrid
             w="100%"
             columns={6}
@@ -150,9 +179,28 @@ export default function Dashboard() {
           justifyItems="center"
           align="center">
           <Carrousel>
-            <GraphForAge />
-            <GraphGender />
-            <GraphTransactionsPerCustomer />
+            <Graph
+              options={graphForAgeOptions}
+              series={graphForAgeSeries}
+              type="bar"
+              width={500}
+              height={300}
+            />
+            <Graph
+              options={graphGenderOptions}
+              series={graphGenderSeries}
+              type="donut"
+              width={400}
+              height={250}
+            />
+
+            <Graph
+              options={GraphTransactionsPerCustomerOptions}
+              series={GraphTransactionsPerCustomerSeries}
+              type="donut"
+              width={500}
+              height={300}
+            />
           </Carrousel>
         </Flex>
       </VStack>
