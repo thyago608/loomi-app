@@ -193,7 +193,7 @@ export default function AddProduct() {
               </Text>
               <Divider borderColor="#c4c4c4" />
             </Flex>
-            <Flex align="center" gap="80px">
+            <Flex align="center" gap="80px" flexWrap="wrap">
               <VStack mt={8} align="flex-start" gap={5}>
                 <Box w="full" maxW="400px">
                   <Input

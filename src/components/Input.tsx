@@ -29,7 +29,6 @@ export function Input({
         <Text
           as="label"
           fontSize="md"
-          flex="none"
           color="#4E5D66"
           htmlFor={rest.name}
           order={labelPosition === "left" ? "0" : "1"}>

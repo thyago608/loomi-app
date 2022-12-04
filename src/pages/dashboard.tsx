@@ -7,28 +7,15 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  SimpleGrid,
   useMediaQuery,
   VStack,
 } from "@chakra-ui/react";
-import { Card } from "components/Card";
-import { cards } from "mocks/card";
-import { Carrousel } from "components/Carousel";
 import { MagnifyingGlass } from "phosphor-react";
-import { Graph } from "components/Graph";
-import {
-  graphRealProfitOptions,
-  graphRealProfitSeries,
-  GraphTransactionsPerCustomerOptions,
-  GraphTransactionsPerCustomerSeries,
-  graphForAgeOptions,
-  graphForAgeSeries,
-  graphForMonthOptions,
-  graphForMonthSeries,
-  graphGenderOptions,
-  graphGenderSeries,
-} from "utils/graphs";
 import { ProductsTable } from "components/pages/Dashboard/ProductsTable";
+import { InitialSection } from "components/pages/Dashboard/InitalSection";
+import { DashboardSales } from "components/pages/Dashboard/DashboardSales";
+import { ConversationFunnel } from "components/pages/Dashboard/ConversationFunnel";
+import { UserProfile } from "components/pages/Dashboard/UserProfile";
 
 export default function Dashboard() {
   const [isLargerThan1920] = useMediaQuery(
@@ -49,120 +36,43 @@ export default function Dashboard() {
       <Head>
         <title>Loomi | Dashboard</title>
       </Head>
-      <VStack gap={8} as="section" align="flex-start">
-        <Box as="header" pl={8}>
-          <Heading color="#4E5D66" fontSize="2xl">
-            Início
-          </Heading>
-        </Box>
-        {isLargerThan1920 ? (
-          <SimpleGrid
-            w="100%"
-            columns={6}
-            spacingX="30px"
-            spacingY="20px">
-            {cards.map((card) => (
-              <Card
-                key={card.heading.title}
-                heading={card.heading}
-                body={card.body}
-                footer={card.footer}
-              />
-            ))}
-          </SimpleGrid>
-        ) : (
-          <Carrousel>
-            {cards.map((card) => (
-              <Card
-                key={card.heading.title}
-                heading={card.heading}
-                body={card.body}
-                footer={card.footer}
-              />
-            ))}
-          </Carrousel>
-        )}
-      </VStack>
-
       <VStack
         mt={10}
-        gap={8}
-        as="section"
-        align="flex-start">
-        <Box as="header">
-          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
-            Dashboard de vendas
-          </Heading>
-        </Box>
-        <Flex
-          w="100%"
-          flex="none"
-          gap="30px"
-          justifyItems="center">
-          <Carrousel
-            arrows={isLargerThan1440 ? false : true}>
-            <Graph
-              type="bar"
-              width={400}
-              height={250}
-              options={graphForMonthOptions}
-              series={graphForMonthSeries}
-            />
-            <Graph
-              type="bar"
-              width={350}
-              height={250}
-              options={graphRealProfitOptions}
-              series={graphRealProfitSeries}
-            />
-            <Graph
-              type="bar"
-              width={350}
-              height={250}
-              options={graphRealProfitOptions}
-              series={graphRealProfitSeries}
-            />
-          </Carrousel>
-        </Flex>
-      </VStack>
-
-      <VStack
-        gap={8}
         as="section"
         align="flex-start"
-        mt={10}>
+        gap={8}>
         <Box as="header">
           <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
             Funil de conversão
           </Heading>
         </Box>
-        {isLargerThan1920 ? (
-          <SimpleGrid
-            w="100%"
-            columns={6}
-            spacingX="30px"
-            spacingY="20px">
-            {cards.map((card) => (
-              <Card
-                key={card.heading.title}
-                heading={card.heading}
-                body={card.body}
-                footer={card.footer}
-              />
-            ))}
-          </SimpleGrid>
-        ) : (
-          <Carrousel>
-            {cards.map((card) => (
-              <Card
-                key={card.heading.title}
-                heading={card.heading}
-                body={card.body}
-                footer={card.footer}
-              />
-            ))}
-          </Carrousel>
-        )}
+        <InitialSection isDesktop={isLargerThan1920} />
+      </VStack>
+
+      <VStack
+        mt={10}
+        as="section"
+        align="flex-start"
+        gap={8}>
+        <Box as="header">
+          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
+            Dashboard de vendas
+          </Heading>
+        </Box>
+        <DashboardSales isDesktop={isLargerThan1440} />
+      </VStack>
+
+      <VStack
+        mt={10}
+        as="section"
+        align="flex-start"
+        gap={8}>
+        <Box as="header">
+          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
+            Funil de conversão
+          </Heading>
+        </Box>
+        <ConversationFunnel isDesktop={isLargerThan1920} />
       </VStack>
 
       <VStack
@@ -181,30 +91,7 @@ export default function Dashboard() {
           gap="10px"
           justifyItems="center"
           align="center">
-          <Carrousel>
-            <Graph
-              options={graphForAgeOptions}
-              series={graphForAgeSeries}
-              type="bar"
-              width={500}
-              height={300}
-            />
-            <Graph
-              options={graphGenderOptions}
-              series={graphGenderSeries}
-              type="donut"
-              width={400}
-              height={250}
-            />
-
-            <Graph
-              options={GraphTransactionsPerCustomerOptions}
-              series={GraphTransactionsPerCustomerSeries}
-              type="donut"
-              width={500}
-              height={300}
-            />
-          </Carrousel>
+          <UserProfile />
         </Flex>
       </VStack>
 
