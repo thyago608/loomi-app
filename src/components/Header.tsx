@@ -1,8 +1,11 @@
 import { Avatar, Flex, Text } from "@chakra-ui/react";
+import { useAuth } from "hooks/useAuth";
 import Image from "next/image";
 import Link from "next/link";
 
 export function Header() {
+  const { user } = useAuth();
+
   return (
     <Flex
       as="header"
@@ -20,11 +23,8 @@ export function Header() {
         />
       </Link>
       <Flex align="center" gap="10px">
-        <Text>Thyago</Text>
-        <Avatar
-          name="Thyago Ribeiro"
-          src="https://bit.ly/broken-link"
-        />
+        <Text>{user?.name}</Text>
+        <Avatar name={user?.name} src={user?.avatar} />
       </Flex>
     </Flex>
   );

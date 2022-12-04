@@ -16,6 +16,8 @@ import { InitialSection } from "components/pages/Dashboard/InitalSection";
 import { DashboardSales } from "components/pages/Dashboard/DashboardSales";
 import { ConversationFunnel } from "components/pages/Dashboard/ConversationFunnel";
 import { UserProfile } from "components/pages/Dashboard/UserProfile";
+import { GetServerSideProps } from "next";
+import { parseCookies } from "nookies";
 
 export default function Dashboard() {
   const [isLargerThan1920] = useMediaQuery(
@@ -148,3 +150,21 @@ export default function Dashboard() {
     </Box>
   );
 }
+
+export const getServerSideProps: GetServerSideProps =
+  async (ctx) => {
+    const { "loomiapp.token": token } = parseCookies(ctx);
+
+    if (!token) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
+    }
+
+    return {
+      props: {},
+    };
+  };
