@@ -1,12 +1,3 @@
-import axios from "axios";
-import { parseCookies } from "nookies";
+import { getAPIClient } from "./axios";
 
-const { "loomiapp.token": token } = parseCookies();
-
-export const api = axios.create({
-  baseURL: "https://628bf017667aea3a3e387e51.mockapi.io/",
-});
-
-if (token) {
-  api.defaults.headers["Authorization"] = `Bearer ${token}`;
-}
+export const api = getAPIClient();

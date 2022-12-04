@@ -1,32 +1,58 @@
+import { useState } from "react";
 import {
   Table,
   TableContainer,
   Tbody,
   VStack,
 } from "@chakra-ui/react";
+import { THead } from "./THead";
 import { TBodyItem } from "./TBodyItem";
 import { Pagination } from "./Pagination";
-import { THead } from "./THead";
+import { Loading } from "components/Loading";
+import { useFetchProducts } from "hooks/useFetchProducts";
 
 export function ProductsTable() {
+  const [page, setPage] = useState(1);
+
+  const { data, isLoading } = useFetchProducts(page);
+
+  function handleGoNextPage() {
+    setPage((oldState) => oldState + 1);
+  }
+
+  function handleGoPreviousPage() {
+    setPage((oldState) => oldState - 1);
+  }
+
   return (
     <VStack w="100%" bg="#FFF">
-      <TableContainer w="100%">
-        <Table variant="simple">
-          <THead />
-          <Tbody>
-            <TBodyItem />
-            <TBodyItem />
-            <TBodyItem />
-            <TBodyItem />
-            <TBodyItem />
-            <TBodyItem />
-            <TBodyItem />
-            <TBodyItem />
-          </Tbody>
-        </Table>
-      </TableContainer>
-      <Pagination />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <TableContainer w="100%">
+            <Table variant="simple">
+              <THead />
+              <Tbody>
+                {data?.products.map((product) => (
+                  <TBodyItem
+                    key={product.id}
+                    data={product}
+                  />
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+          {!isLoading && data && (
+            <Pagination
+              currentPage={page}
+              totalPages={data.totalPages}
+              onNextPage={handleGoNextPage}
+              onPreviousPage={handleGoPreviousPage}
+            />
+          )}
+        </>
+      )}
     </VStack>
   );
 }

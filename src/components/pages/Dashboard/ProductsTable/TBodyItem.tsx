@@ -1,8 +1,13 @@
 import { Flex, Td, Text, Tr } from "@chakra-ui/react";
 import Image from "next/image";
 import { Check } from "phosphor-react";
+import { Product } from "types/Product";
 
-export function TBodyItem() {
+interface TBodyItemProps {
+  data: Product;
+}
+
+export function TBodyItem({ data }: TBodyItemProps) {
   return (
     <Tr>
       <Td>
@@ -13,10 +18,10 @@ export function TBodyItem() {
             height={50}
             alt=""
           />
-          Banco Cajá
+          {data.name}
         </Flex>
       </Td>
-      <Td>Madeira escura; Madeira média</Td>
+      <Td>{data.color}</Td>
       <Td maxW={350} display="flex" flexWrap="wrap" gap={1}>
         <Text
           as="span"
@@ -53,7 +58,7 @@ export function TBodyItem() {
       </Td>
       <Td>
         <Flex gap={2}>
-          Ativo
+          {data.status}
           <Check size={20} weight="bold" color="#5A4CA7" />
         </Flex>
       </Td>
