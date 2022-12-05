@@ -50,7 +50,11 @@ export function FormLogin() {
   }
 
   return (
-    <VStack as="form" gap="30px" onSubmit={handleSubmit(handleSignIn)}>
+    <VStack
+      as="form"
+      gap="30px"
+      role="form"
+      onSubmit={handleSubmit(handleSignIn)}>
       <InputGroup maxW={400}>
         <Input {...register("email")} label="Email" error={formState.errors} />
       </InputGroup>
@@ -62,7 +66,11 @@ export function FormLogin() {
           error={formState.errors}
         />
         <InputRightElement width="3.5rem" top="2px">
-          <Button size="sm" onClick={handleClick} disabled={isSubmitDisabled}>
+          <Button
+            size="sm"
+            onClick={handleClick}
+            disabled={isSubmitDisabled}
+            name="visualizar senha">
             {show ? (
               <Eye size={25} color="#4E5D66" />
             ) : (
