@@ -1,9 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import { Card } from "components/Card";
 import { Carrousel } from "components/Carousel";
-import { cards } from "utils/conversionFunnelCardsList";
 import { useConversionsList } from "hooks/useConversionsList";
-import { ITicket } from "types/Ticket";
 
 interface ListsConversionsCardsProps {
   isDesktop: boolean;
@@ -12,60 +10,39 @@ interface ListsConversionsCardsProps {
 export function ListsConversionsCards({
   isDesktop,
 }: ListsConversionsCardsProps) {
-  const { data, isLoading } = useConversionsList();
-
-  const conversionsList = Object.entries(data ?? {});
-
-  const conversionsListFormatted: ITicket[] =
-    conversionsList.map(([key, value], index) => value);
-
-  const cardsFormatted = cards.map((item, index) => {
-    return {
-      ...item,
-      subtitleAmount: Math.abs(
-        conversionsListFormatted[index]?.growth
-      ),
-      footerAmount: String(
-        conversionsListFormatted[index]?.value
-      ),
-    };
-  });
+  const { cards, isLoading } = useConversionsList();
 
   if (isLoading) {
     return <p>carregando...</p>;
   }
 
   return isDesktop ? (
-    <SimpleGrid
-      w="100%"
-      columns={6}
-      spacingX="30px"
-      spacingY="20px">
-      {cardsFormatted.map((card) => (
+    <SimpleGrid w="100%" columns={6} spacingX="30px" spacingY="20px">
+      {cards.map((item) => (
         <Card
-          key={card.title}
-          title={card.title}
-          type={card.type}
-          footerAmount={card.footerAmount}
-          footerLabel={card.footerLabel}
-          subtitleAmount={card.subtitleAmount}
-          variant={card.variant}
-          bodyLabel={card.bodyLabel}
+          key={item.title}
+          title={item.title}
+          type={item.type}
+          footerAmount={item.footerAmount}
+          footerLabel={item.footerLabel}
+          subtitleAmount={item.subtitleAmount}
+          variant={item.variant}
+          bodyLabel={item.bodyLabel}
         />
       ))}
     </SimpleGrid>
   ) : (
     <Carrousel>
-      {cardsFormatted.map((card) => (
+      {cards.map((item) => (
         <Card
-          key={card.title}
-          title={card.title}
-          type={card.type}
-          footerAmount={card.footerAmount}
-          footerLabel={card.footerLabel}
-          subtitleAmount={card.subtitleAmount}
-          variant={card.variant}
-          bodyLabel={card.bodyLabel}
+          key={item.title}
+          title={item.title}
+          type={item.type}
+          footerAmount={item.footerAmount}
+          footerLabel={item.footerLabel}
+          subtitleAmount={item.subtitleAmount}
+          variant={item.variant}
+          bodyLabel={item.bodyLabel}
         />
       ))}
     </Carrousel>
