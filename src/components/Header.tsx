@@ -15,12 +15,7 @@ export function Header() {
       boxShadow="md"
       bg="#FFF">
       <Link href="/">
-        <Image
-          src="/loomi-logo.svg"
-          width={60}
-          height={60}
-          alt="loomi"
-        />
+        <Image src="/loomi-logo.svg" width={60} height={60} alt="loomi" />
       </Link>
       <Flex align="center" gap="10px">
         <Text>{user?.name}</Text>

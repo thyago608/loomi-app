@@ -31,13 +31,7 @@ interface GraphProps {
   type: GraphType;
 }
 
-export function Graph({
-  width,
-  height,
-  options,
-  type,
-  series,
-}: GraphProps) {
+export function Graph({ width, height, options, type, series }: GraphProps) {
   return (
     <Charts
       type={type}

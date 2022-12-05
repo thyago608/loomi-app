@@ -42,7 +42,7 @@ export function useSellsMonth() {
           })),
         },
       ]
-    : [];
+    : [{ data: [] }];
 
   const ordersPerMonthSeries = ordersPerMonthQuery.data
     ? chartRealProfitSeries.map((item, index) => {

@@ -9,10 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { client } from "services/queryClient";
 import { theme } from "styles/theme";
 
-export default function App({
-  Component,
-  pageProps,
-}: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
 
   return (

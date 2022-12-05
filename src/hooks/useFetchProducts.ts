@@ -9,18 +9,11 @@ type ResponseFetchProducts = {
   totalPages: number;
 };
 
-async function getProducts(
-  page: number
-): Promise<ResponseFetchProducts> {
-  const productsListResponse = await api.get<IProduct[]>(
-    "/products"
-  );
-  const productsTotalAmount =
-    productsListResponse.data.length;
+async function getProducts(page: number): Promise<ResponseFetchProducts> {
+  const productsListResponse = await api.get<IProduct[]>("/products");
+  const productsTotalAmount = productsListResponse.data.length;
 
-  const totalPages = Math.ceil(
-    productsTotalAmount / LIMIT_PER_PAGE
-  );
+  const totalPages = Math.ceil(productsTotalAmount / LIMIT_PER_PAGE);
 
   const products = await api.get<IProduct[]>(
     `products?page=${page}&limit=${LIMIT_PER_PAGE}`
@@ -33,11 +26,7 @@ async function getProducts(
 }
 
 export function useFetchProducts(page: number) {
-  return useQuery(
-    ["products", page],
-    () => getProducts(page),
-    {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-    }
-  );
+  return useQuery(["products", page], () => getProducts(page), {
+    staleTime: 1000 * 60 * 5, // 5 minutes
+  });
 }
