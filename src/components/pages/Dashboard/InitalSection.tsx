@@ -19,15 +19,11 @@ interface Card {
   footerAmount: string;
 }
 
-export function InitialSection({
-  isDesktop,
-}: InitialSectionProps) {
+export function InitialSection({ isDesktop }: InitialSectionProps) {
   let cards: ICard[] = [];
   const queryResults = useCardData();
 
-  const isLoading = queryResults.some(
-    (query) => query.isLoading
-  );
+  const isLoading = queryResults.some((query) => query.isLoading);
 
   if (!isLoading) {
     const [
@@ -46,22 +42,16 @@ export function InitialSection({
         subtitleAmount: Number(ticketDayQuery.data?.growth),
         bodyLabel: "em relação a ontem",
         footerLabel: "",
-        footerAmount: convertValueToReal(
-          Number(ticketDayQuery.data?.value)
-        ),
+        footerAmount: convertValueToReal(Number(ticketDayQuery.data?.value)),
       },
       {
         variant: "primary",
         type: "money",
         title: "Ticket médio mensal",
-        subtitleAmount: Number(
-          ticketMonthQuery.data?.growth
-        ),
+        subtitleAmount: Number(ticketMonthQuery.data?.growth),
         bodyLabel: "em relação a julho",
         footerLabel: "",
-        footerAmount: convertValueToReal(
-          Number(ticketMonthQuery.data?.value)
-        ),
+        footerAmount: convertValueToReal(Number(ticketMonthQuery.data?.value)),
       },
       {
         variant: "secondary",
@@ -83,9 +73,7 @@ export function InitialSection({
         variant: "primary",
         type: "others",
         title: "Pedidos realizados no mês",
-        subtitleAmount: Number(
-          ordersMonthQuery.data?.growth
-        ),
+        subtitleAmount: Number(ordersMonthQuery.data?.growth),
         bodyLabel: "em relação a julho",
         footerLabel: "pedidos",
         footerAmount: String(ordersMonthQuery.data?.value),
@@ -94,9 +82,7 @@ export function InitialSection({
         variant: "primary",
         type: "others",
         title: "Pedidos vendidos no mês",
-        subtitleAmount: Number(
-          sellsMonthQuery.data?.growth
-        ),
+        subtitleAmount: Number(sellsMonthQuery.data?.growth),
         bodyLabel: "em relação a julho",
         footerLabel: "produtos",
         footerAmount: String(sellsMonthQuery.data?.value),
@@ -105,11 +91,7 @@ export function InitialSection({
   }
 
   return isDesktop ? (
-    <SimpleGrid
-      w="100%"
-      columns={6}
-      spacingX="30px"
-      spacingY="20px">
+    <SimpleGrid w="100%" columns={6} spacingX="30px" spacingY="20px">
       {cards.map((card) => (
         <Card
           key={card.title}

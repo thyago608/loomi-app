@@ -69,6 +69,11 @@ export const graphRealProfitOptions: ApexOptions = {
       "MAI",
       "JUN",
       "JUL",
+      "AGO",
+      "SET",
+      "OUT",
+      "NOV",
+      "DEZ",
     ],
     labels: {
       style: {

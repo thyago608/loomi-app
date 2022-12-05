@@ -57,51 +57,51 @@ export const graphForMonthSeries = [
     data: [
       {
         x: "JAN",
-        y: 15,
+        y: 0,
       },
       {
         x: "FEV",
-        y: 40,
+        y: 0,
       },
       {
         x: "MAR",
-        y: 20,
+        y: 0,
       },
       {
         x: "ABR",
-        y: 30,
+        y: 0,
       },
       {
         x: "MAI",
-        y: 20,
+        y: 0,
       },
       {
         x: "JUN",
-        y: 30,
+        y: 0,
       },
       {
         x: "JUL",
-        y: 10,
+        y: 0,
       },
       {
         x: "AGO",
-        y: 15,
+        y: 0,
       },
       {
         x: "SET",
-        y: 20,
+        y: 0,
       },
       {
         x: "OUT",
-        y: 30,
+        y: 0,
       },
       {
         x: "NOV",
-        y: 20,
+        y: 0,
       },
       {
         x: "DEZ",
-        y: 25,
+        y: 0,
       },
     ],
   },
