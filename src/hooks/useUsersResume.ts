@@ -2,8 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ApexOptions } from "apexcharts";
 import { api } from "services/api";
 import { ITransaction } from "types/Transaction";
-import { graphForAgeOptions } from "utils/graphs";
-import { graphGenderOptions } from "utils/graphs";
+import { chartForAgeOptions, chartGenderOptions } from "utils/Charts";
 
 interface SessionPerSex {
   male: number;
@@ -36,7 +35,7 @@ export function useUsersResume() {
   ) ?? [""];
 
   const transactionsPerAgeOptions: ApexOptions = {
-    ...graphForAgeOptions,
+    ...chartForAgeOptions,
     xaxis: {
       categories: transactionsPerAgeCategories,
     },
@@ -49,7 +48,7 @@ export function useUsersResume() {
   ];
 
   const genderSessionsSeries =
-    graphGenderOptions?.legend?.customLegendItems?.map((item) => {
+    chartGenderOptions?.legend?.customLegendItems?.map((item) => {
       if (item === "Masculino") {
         return Number(sessionsPerSex?.male);
       }

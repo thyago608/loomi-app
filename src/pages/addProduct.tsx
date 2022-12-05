@@ -16,13 +16,9 @@ import { Input } from "components/Input";
 import { Plus } from "phosphor-react";
 
 export default function AddProduct() {
-  const [isLargerThan1920] = useMediaQuery(
-    "(min-width: 1920px)"
-  );
+  const [isLargerThan1920] = useMediaQuery("(min-width: 1920px)");
 
-  const [isLargerThan1440] = useMediaQuery(
-    "(min-width: 1440px)"
-  );
+  const [isLargerThan1440] = useMediaQuery("(min-width: 1440px)");
 
   return (
     <Box
@@ -52,36 +48,13 @@ export default function AddProduct() {
               flexWrap="wrap"
               gap={10}>
               <VStack align="flex-start" gap={5}>
-                <Heading
-                  fontSize="20px"
-                  mb={5}
-                  color="#4E5D66">
+                <Heading fontSize="20px" mb={5} color="#4E5D66">
                   Detalhes
                 </Heading>
-                <Input
-                  h={10}
-                  maxW={350}
-                  name="name"
-                  label="Name"
-                />
-                <Input
-                  h={10}
-                  maxW={350}
-                  name="id"
-                  label="ID"
-                />
-                <Input
-                  h={10}
-                  maxW={350}
-                  name="cod"
-                  label="Código"
-                />
-                <Input
-                  h={10}
-                  maxW={350}
-                  name="seller"
-                  label="Seller"
-                />
+                <Input h={10} maxW={350} name="name" label="Name" />
+                <Input h={10} maxW={350} name="id" label="ID" />
+                <Input h={10} maxW={350} name="cod" label="Código" />
+                <Input h={10} maxW={350} name="seller" label="Seller" />
                 <Input
                   h={10}
                   maxW={350}
@@ -89,15 +62,8 @@ export default function AddProduct() {
                   label="Prazo de entrega"
                 />
               </VStack>
-              <VStack
-                align="flex-start"
-                gap={5}
-                w="100%"
-                maxW={300}>
-                <Heading
-                  fontSize="20px"
-                  mb={5}
-                  color="#4E5D66">
+              <VStack align="flex-start" gap={5} w="100%" maxW={300}>
+                <Heading fontSize="20px" mb={5} color="#4E5D66">
                   Categorias
                 </Heading>
                 <Stack spacing={3} w="100%">
@@ -105,27 +71,14 @@ export default function AddProduct() {
                     variant="filled"
                     placeholder="Selecionar categorias"
                     color="#afa9a9">
-                    <option value="option1">
-                      Option 1
-                    </option>
-                    <option value="option2">
-                      Option 2
-                    </option>
-                    <option value="option3">
-                      Option 3
-                    </option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
                   </Select>
                 </Stack>
               </VStack>
-              <VStack
-                align="flex-start"
-                gap={5}
-                w="100%"
-                maxW={300}>
-                <Heading
-                  fontSize="20px"
-                  mb={5}
-                  color="#4E5D66">
+              <VStack align="flex-start" gap={5} w="100%" maxW={300}>
+                <Heading fontSize="20px" mb={5} color="#4E5D66">
                   Tags
                 </Heading>
                 <Select
@@ -140,10 +93,7 @@ export default function AddProduct() {
             </Flex>
 
             <VStack align="flex-start" gap={5} mt="65px">
-              <Heading
-                fontSize="20px"
-                mb={5}
-                color="#4E5D66">
+              <Heading fontSize="20px" mb={5} color="#4E5D66">
                 Especifações
               </Heading>
               <Input
@@ -169,10 +119,7 @@ export default function AddProduct() {
 
           <Box bg="#FFF" w="full" p={10} borderRadius="2xl">
             <Flex justify="space-between">
-              <Heading
-                fontSize="20px"
-                mb={5}
-                color="#4E5D66">
+              <Heading fontSize="20px" mb={5} color="#4E5D66">
                 Itens
               </Heading>
               <Button
@@ -185,10 +132,7 @@ export default function AddProduct() {
               </Button>
             </Flex>
             <Flex mt={10} align="center" gap={4}>
-              <Text
-                flex="none"
-                fontSize="md"
-                color="#4E5D66">
+              <Text flex="none" fontSize="md" color="#4E5D66">
                 Item 01
               </Text>
               <Divider borderColor="#c4c4c4" />
@@ -196,11 +140,7 @@ export default function AddProduct() {
             <Flex align="center" gap="80px" flexWrap="wrap">
               <VStack mt={8} align="flex-start" gap={5}>
                 <Box w="full" maxW="400px">
-                  <Input
-                    label="Código"
-                    height={10}
-                    ml={{ base: 0, md: 6 }}
-                  />
+                  <Input label="Código" height={10} ml={{ base: 0, md: 6 }} />
                 </Box>
                 <Flex
                   w="full"
@@ -211,10 +151,7 @@ export default function AddProduct() {
                     base: "column",
                     md: "row",
                   }}>
-                  <Text
-                    as="label"
-                    fontSize="md"
-                    color="#4E5D66">
+                  <Text as="label" fontSize="md" color="#4E5D66">
                     Cor:
                   </Text>
                   <Stack spacing={3} w="full">
@@ -222,15 +159,9 @@ export default function AddProduct() {
                       variant="filled"
                       placeholder="Selecionar categorias"
                       color="#afa9a9">
-                      <option value="option1">
-                        Option 1
-                      </option>
-                      <option value="option2">
-                        Option 2
-                      </option>
-                      <option value="option3">
-                        Option 3
-                      </option>
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
                     </Select>
                   </Stack>
                 </Flex>
@@ -244,10 +175,7 @@ export default function AddProduct() {
                     md: "row",
                   }}
                   gap={4}>
-                  <Text
-                    as="label"
-                    fontSize="md"
-                    color="#4E5D66">
+                  <Text as="label" fontSize="md" color="#4E5D66">
                     Tamanho:
                   </Text>
                   <Input
@@ -285,30 +213,17 @@ export default function AddProduct() {
                     position: "absolute",
                     pointerEvents: "none",
                   }}>
-                  <ChakraInput
-                    type="file"
-                    w="full"
-                    h="full"
-                    opacity={0}
-                  />
+                  <ChakraInput type="file" w="full" h="full" opacity={0} />
                 </Flex>
               </Flex>
             </Flex>
           </Box>
         </Box>
         <Flex w="full" justify="flex-end" gap={4}>
-          <Button
-            bg="#c2c8cc"
-            maxW="120px"
-            h={10}
-            fontWeight="normal">
+          <Button bg="#c2c8cc" maxW="120px" h={10} fontWeight="normal">
             Cancelar
           </Button>
-          <Button
-            bg="#C0D7E5"
-            maxW="120px"
-            h={10}
-            fontWeight="normal">
+          <Button bg="#C0D7E5" maxW="120px" h={10} fontWeight="normal">
             Criar
           </Button>
         </Flex>

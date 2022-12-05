@@ -3,9 +3,9 @@ import { Carrousel } from "components/Carousel";
 import { Graph } from "components/Graph";
 import { useUsersResume } from "hooks/useUsersResume";
 import {
-  graphGenderOptions,
-  GraphTransactionsPerCustomerOptions,
-} from "utils/graphs";
+  chartGenderOptions,
+  ChartTransactionsPerCustomerOptions,
+} from "utils/Charts";
 
 export function UserProfile() {
   const {
@@ -28,7 +28,7 @@ export function UserProfile() {
       </Flex>
       <Flex bg="#FFF" h={315} align="center" px={2} borderRadius="lg">
         <Graph
-          options={graphGenderOptions}
+          options={chartGenderOptions}
           series={genderSessionsSeries}
           type="donut"
           width={400}
@@ -38,7 +38,7 @@ export function UserProfile() {
 
       <Flex bg="#FFF" h={315} align="center" px={2} borderRadius="lg">
         <Graph
-          options={GraphTransactionsPerCustomerOptions}
+          options={ChartTransactionsPerCustomerOptions}
           series={transactionsPerClientSeries}
           type="donut"
           width={400}

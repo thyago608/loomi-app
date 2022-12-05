@@ -1,6 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
-export const graphForAgeOptions: ApexOptions = {
+export const chartForAgeOptions: ApexOptions = {
   chart: {
     events: {
       click: function (chart, w, e) {
@@ -59,7 +59,7 @@ export const graphForAgeOptions: ApexOptions = {
   colors: ["#2b2d3d"],
 };
 
-export const graphForAgeSeries = [
+export const chartForAgeSeries = [
   {
     data: [100, 500, 900, 1000, 600, 2000],
   },

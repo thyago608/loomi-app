@@ -1,6 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
-export const graphRealProfitSeries = [
+export const chartRealProfitSeries = [
   {
     name: "Realizados",
     data: [20, 30, 20, 15, 30, 20, 10],
@@ -11,7 +11,7 @@ export const graphRealProfitSeries = [
   },
 ];
 
-export const graphRealProfitOptions: ApexOptions = {
+export const chartRealProfitOptions: ApexOptions = {
   chart: {
     background: "#FFF",
     toolbar: {

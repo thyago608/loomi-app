@@ -2,7 +2,7 @@ import { Box, Flex, Select, Stack } from "@chakra-ui/react";
 import { Carrousel } from "components/Carousel";
 import { Graph } from "components/Graph";
 import { useSellsMonth } from "hooks/useSellsMonth";
-import { graphForMonthOptions, graphRealProfitOptions } from "utils/graphs";
+import { chartRealProfitOptions, chartForMonthOptions } from "utils/Charts";
 
 interface DashboardSalesProps {
   isDesktop: boolean;
@@ -38,7 +38,7 @@ export function DashboardSales({ isDesktop }: DashboardSalesProps) {
             type="bar"
             width={400}
             height={250}
-            options={graphForMonthOptions}
+            options={chartForMonthOptions}
             series={sellsPerMonthSeries}
           />
         </Box>
@@ -47,7 +47,16 @@ export function DashboardSales({ isDesktop }: DashboardSalesProps) {
             type="bar"
             width={400}
             height={250}
-            options={graphRealProfitOptions}
+            options={chartRealProfitOptions}
+            series={ordersPerMonthSeries}
+          />
+        </Box>
+        <Box p={4} pb={0} bg="#FFF" borderRadius="lg">
+          <Graph
+            type="bar"
+            width={400}
+            height={250}
+            options={chartRealProfitOptions}
             series={ordersPerMonthSeries}
           />
         </Box>

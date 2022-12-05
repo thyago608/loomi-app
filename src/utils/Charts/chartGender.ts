@@ -1,6 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
-export const graphGenderOptions: ApexOptions = {
+export const chartGenderOptions: ApexOptions = {
   chart: {
     events: {
       click: function (chart, w, e) {

@@ -1,6 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
-export const graphForMonthOptions: ApexOptions = {
+export const chartForMonthOptions: ApexOptions = {
   chart: {
     events: {
       click: function (chart, w, e) {
@@ -52,7 +52,7 @@ export const graphForMonthOptions: ApexOptions = {
   colors: ["#2b2d3d"],
 };
 
-export const graphForMonthSeries = [
+export const chartForMonthSeries = [
   {
     data: [
       {

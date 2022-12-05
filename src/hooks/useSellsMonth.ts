@@ -1,7 +1,7 @@
 import { useQueries } from "@tanstack/react-query";
 import { api } from "services/api";
 import { ISellsMonth } from "types/SellsMonth";
-import { graphForMonthSeries, graphRealProfitSeries } from "utils/graphs";
+import { chartForMonthSeries, chartRealProfitSeries } from "utils/Charts";
 
 async function fetchSellsPerMonth(): Promise<ISellsMonth[]> {
   const response = await api.get("/sells-per-month");
@@ -31,7 +31,7 @@ export function useSellsMonth() {
 
   const isLoading = queryResults.some((query) => query.isLoading);
   const [sellsPerMonthQuery, ordersPerMonthQuery] = queryResults;
-  const [series] = graphForMonthSeries;
+  const [series] = chartForMonthSeries;
 
   const sellsPerMonthSeries = sellsPerMonthQuery.data
     ? [
@@ -45,7 +45,7 @@ export function useSellsMonth() {
     : [];
 
   const ordersPerMonthSeries = ordersPerMonthQuery.data
-    ? graphRealProfitSeries.map((item, index) => {
+    ? chartRealProfitSeries.map((item, index) => {
         if (index === 0) {
           return {
             ...item,
