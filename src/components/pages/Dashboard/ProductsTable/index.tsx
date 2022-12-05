@@ -1,20 +1,16 @@
 import { useState } from "react";
-import {
-  Table,
-  TableContainer,
-  Tbody,
-  VStack,
-} from "@chakra-ui/react";
+import { Table, TableContainer, Tbody, VStack } from "@chakra-ui/react";
 import { THead } from "./THead";
 import { TBodyItem } from "./TBodyItem";
 import { Pagination } from "./Pagination";
 import { Loading } from "components/Loading";
-import { useFetchProducts } from "hooks/useFetchProducts";
+import { useProducts } from "hooks/useProducts";
 
 export function ProductsTable() {
   const [page, setPage] = useState(1);
 
-  const { data, isLoading } = useFetchProducts(page);
+  const { fetchProducts } = useProducts(page);
+  const { data, isLoading } = fetchProducts;
 
   function handleGoNextPage() {
     setPage((oldState) => oldState + 1);
@@ -35,10 +31,7 @@ export function ProductsTable() {
               <THead />
               <Tbody>
                 {data?.products.map((product) => (
-                  <TBodyItem
-                    key={product.id}
-                    data={product}
-                  />
+                  <TBodyItem key={product.id} data={product} />
                 ))}
               </Tbody>
             </Table>

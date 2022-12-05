@@ -5,7 +5,7 @@ import { FormLogin } from "components/pages/Home/FormLogin";
 
 export default function Home() {
   return (
-    <Box h="100vh">
+    <Box minHeight="100vh">
       <Head>
         <title>Loomi | Home</title>
       </Head>

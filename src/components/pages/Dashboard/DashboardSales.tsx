@@ -1,4 +1,4 @@
-import { Box, Flex, Select, Stack } from "@chakra-ui/react";
+import { Box, Flex, Select, Stack, Text } from "@chakra-ui/react";
 import { Carrousel } from "components/Carousel";
 import { Graph } from "components/Graph";
 import { useSellsMonth } from "hooks/useSellsMonth";
@@ -13,9 +13,17 @@ export function DashboardSales({ isDesktop }: DashboardSalesProps) {
     useSellsMonth();
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return (
+      <Text
+        display="flex"
+        w="full"
+        h="200px"
+        alignItems="center"
+        justifyContent="center">
+        Carregando..
+      </Text>
+    );
   }
-
   return (
     <Flex w="100%" flex="none" gap="30px" justifyItems="center">
       <Carrousel arrows={isDesktop ? false : true}>

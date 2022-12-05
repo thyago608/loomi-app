@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import { Card } from "components/Card";
 import { Carrousel } from "components/Carousel";
 import { useCardData } from "hooks/useCardData";
@@ -11,7 +11,16 @@ export function InitialSection({ isDesktop }: InitialSectionProps) {
   const { cards, isLoading } = useCardData();
 
   if (isLoading) {
-    return <p>carregando..</p>;
+    return (
+      <Text
+        display="flex"
+        w="full"
+        h="200px"
+        alignItems="center"
+        justifyContent="center">
+        Carregando..
+      </Text>
+    );
   }
 
   return isDesktop ? (

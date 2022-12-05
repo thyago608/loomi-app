@@ -28,7 +28,8 @@ export default function Dashboard() {
     <Box
       as="main"
       maxWidth={isLargerThan1920 ? 1620 : 1350}
-      my={{ base: "120px", "2xl": "90px" }}
+      minH="100vh"
+      mt={{ base: "120px", "2xl": "90px" }}
       ml={{ base: 0, "2xl": "100px" }}
       px={4}>
       <Head>

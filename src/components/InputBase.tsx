@@ -21,9 +21,16 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   const isInvalid = !!error[name];
 
   return (
-    <FormControl isInvalid={isInvalid}>
+    <FormControl
+      position="relative"
+      isInvalid={isInvalid}
+      display="flex"
+      flexDirection={{ base: "column", md: "row" }}
+      justifyContent={{ base: "space-between" }}
+      alignItems={{ base: "flex-start", md: "center" }}
+      gap={4}>
       {!!label && (
-        <FormLabel htmlFor={name} fontSize="md">
+        <FormLabel htmlFor={name} fontSize="md" color="#4E5D66">
           {label}
         </FormLabel>
       )}
@@ -37,13 +44,10 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         h="45px"
         fontSize="xl"
         ref={ref}
+        maxW={300}
         {...rest}
       />
-      {isInvalid && (
-        <FormErrorMessage>
-          <>{error[name]?.message}</>
-        </FormErrorMessage>
-      )}
+      {isInvalid && <FormErrorMessage position="absolute" />}
     </FormControl>
   );
 };

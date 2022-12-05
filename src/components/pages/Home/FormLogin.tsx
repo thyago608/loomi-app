@@ -13,9 +13,7 @@ import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const userValidationSchema = zod.object({
-  email: zod
-    .string()
-    .email("Por favor, insira um email válido"),
+  email: zod.string().email("Por favor, insira um email válido"),
   password: zod.string(),
 });
 
@@ -34,8 +32,7 @@ export function FormLogin() {
     },
   });
 
-  const { handleSubmit, register, watch, formState } =
-    userLoginForm;
+  const { handleSubmit, register, watch, formState } = userLoginForm;
   const password = watch("password");
   const isSubmitDisabled = !password;
 
@@ -53,16 +50,9 @@ export function FormLogin() {
   }
 
   return (
-    <VStack
-      as="form"
-      gap="30px"
-      onSubmit={handleSubmit(handleSignIn)}>
+    <VStack as="form" gap="30px" onSubmit={handleSubmit(handleSignIn)}>
       <InputGroup maxW={400}>
-        <Input
-          {...register("email")}
-          label="Email"
-          error={formState.errors}
-        />
+        <Input {...register("email")} label="Email" error={formState.errors} />
       </InputGroup>
       <InputGroup maxW={400}>
         <Input
@@ -71,11 +61,8 @@ export function FormLogin() {
           {...register("password")}
           error={formState.errors}
         />
-        <InputRightElement width="3.5rem" top="35px">
-          <Button
-            size="sm"
-            onClick={handleClick}
-            disabled={isSubmitDisabled}>
+        <InputRightElement width="3.5rem" top="2px">
+          <Button size="sm" onClick={handleClick} disabled={isSubmitDisabled}>
             {show ? (
               <Eye size={25} color="#4E5D66" />
             ) : (

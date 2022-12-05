@@ -10,23 +10,110 @@ import {
   Stack,
   Select,
   Divider,
+  Link,
   Input as ChakraInput,
 } from "@chakra-ui/react";
-import { Input } from "components/Input";
+import NextLink from "next/link";
+import { Input } from "components/InputBase";
 import { Plus } from "phosphor-react";
+import * as zod from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { GetServerSideProps } from "next";
+import { parseCookies } from "nookies";
+import { useProducts } from "hooks/useProducts";
+import { useRouter } from "next/router";
+
+const itemsSchema = zod.object({
+  code: zod.string(),
+  color: zod.string(),
+  size: zod.object({
+    width: zod.string(),
+    height: zod.string(),
+  }),
+});
+
+const productValidationSchema = zod.object({
+  code: zod.string().min(1, "Informe o código"),
+  productId: zod.string().min(1, "Informe o ID do produto"),
+  seller: zod.string().min(1, "Informe o seller"),
+  deliveryDate: zod.string().min(1, "Informe o prazo de entrega"),
+  specificationsSubtitle: zod.string().min(1, "Informe o subtítulo"),
+  specificationsInfo: zod.string().min(1, "Forneça uma descrição"),
+  specificationsCares: zod
+    .string()
+    .min(1, "Informe quais os cuidados para o produto"),
+  categories: zod.string().min(1, "Informe o código do produto"),
+  tags: zod.string().min(1, "Informe a tag do produto"),
+  id: zod.string().min(1, "Informe o ID do produto"),
+  items: itemsSchema,
+  name: zod.string().min(1, "Informe o nome do produto"),
+});
+
+type ProductFormData = zod.infer<typeof productValidationSchema>;
 
 export default function AddProduct() {
   const [isLargerThan1920] = useMediaQuery("(min-width: 1920px)");
+  const { createNewProduct } = useProducts(1);
+  const { push } = useRouter();
 
-  const [isLargerThan1440] = useMediaQuery("(min-width: 1440px)");
+  const productCreateForm = useForm<ProductFormData>({
+    resolver: zodResolver(productValidationSchema),
+    defaultValues: {
+      code: "",
+      categories: "",
+      id: "",
+      tags: "",
+      specificationsCares: "",
+      specificationsInfo: "",
+      productId: "",
+      deliveryDate: "",
+      seller: "",
+      specificationsSubtitle: "",
+      items: {
+        code: "",
+        color: "",
+        size: {
+          height: "0",
+          width: "0",
+        },
+      },
+    },
+  });
+
+  const { handleSubmit, register, formState } = productCreateForm;
+
+  async function handleCreateNewProduct(data: ProductFormData) {
+    const { items } = data;
+
+    const product = {
+      ...data,
+      items: {
+        ...items,
+        size: {
+          width: Number(items.size.width),
+          height: Number(items.size.height),
+        },
+      },
+    };
+
+    try {
+      await createNewProduct.mutateAsync(product);
+      push("/dashboard");
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+  }
 
   return (
     <Box
       as="main"
       maxWidth={isLargerThan1920 ? 1620 : 1350}
-      my={{ base: "120px", "2xl": "40px" }}
+      mt={{ base: "120px", "2xl": "40px" }}
       ml={{ base: 0, "2xl": "110px" }}
-      px={4}>
+      px={4}
+      pb={10}>
       <Head>
         <title>Loomi | Dashboard</title>
       </Head>
@@ -36,7 +123,7 @@ export default function AddProduct() {
             Adicionar produto
           </Heading>
         </Box>
-        <Box as="form" w="full">
+        <Box as="form" w="full" onSubmit={handleSubmit(handleCreateNewProduct)}>
           <Box bg="#FFF" w="full" p={10} borderRadius="2xl">
             <Flex
               w="100%"
@@ -51,15 +138,31 @@ export default function AddProduct() {
                 <Heading fontSize="20px" mb={5} color="#4E5D66">
                   Detalhes
                 </Heading>
-                <Input h={10} maxW={350} name="name" label="Name" />
-                <Input h={10} maxW={350} name="id" label="ID" />
-                <Input h={10} maxW={350} name="cod" label="Código" />
-                <Input h={10} maxW={350} name="seller" label="Seller" />
                 <Input
                   h={10}
-                  maxW={350}
-                  name="deadline"
+                  label="Name"
+                  {...register("name")}
+                  error={formState.errors}
+                />
+                <Input
+                  h={10}
+                  label="ID"
+                  {...register("productId")}
+                  error={formState.errors}
+                />
+                <Input
+                  h={10}
+                  label="Código"
+                  {...register("code")}
+                  error={formState.errors}
+                />
+                <Input h={10} label="Seller" {...register("seller")} />
+                <Input
+                  h={10}
+                  {...register("deliveryDate")}
                   label="Prazo de entrega"
+                  type="date"
+                  error={formState.errors}
                 />
               </VStack>
               <VStack align="flex-start" gap={5} w="100%" maxW={300}>
@@ -70,10 +173,10 @@ export default function AddProduct() {
                   <Select
                     variant="filled"
                     placeholder="Selecionar categorias"
+                    {...register("categories")}
                     color="#afa9a9">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
+                    <option value="category1">category1</option>
+                    <option value="category2">category2</option>
                   </Select>
                 </Stack>
               </VStack>
@@ -84,10 +187,10 @@ export default function AddProduct() {
                 <Select
                   variant="filled"
                   placeholder="Selecionar tags"
-                  color="#afa9a9">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
+                  color="#afa9a9"
+                  {...register("tags")}>
+                  <option value="tag1">tag1</option>
+                  <option value="tag2">tag2</option>
                 </Select>
               </VStack>
             </Flex>
@@ -97,22 +200,25 @@ export default function AddProduct() {
                 Especifações
               </Heading>
               <Input
-                maxW={{ base: "80%", "2xl": "90%" }}
+                maxW={{ md: "80%", "2xl": "85%" }}
                 h="40px"
-                name="subtitle"
                 label="Subtítulo"
+                error={formState.errors}
+                {...register("specificationsSubtitle")}
               />
               <Input
-                name="information"
+                maxW={{ md: "80%", "2xl": "85%" }}
+                h="84px"
                 label="Informações"
-                maxW={{ base: "80%", "2xl": "90%" }}
-                h="84px"
+                error={formState.errors}
+                {...register("specificationsInfo")}
               />
               <Input
-                name="clear"
-                label="Limpeza e cuidados"
-                maxW={{ base: "80%", "2xl": "90%" }}
+                maxW={{ md: "80%", "2xl": "85%" }}
                 h="84px"
+                label="Limpeza e cuidados"
+                error={formState.errors}
+                {...register("specificationsCares")}
               />
             </VStack>
           </Box>
@@ -139,29 +245,33 @@ export default function AddProduct() {
             </Flex>
             <Flex align="center" gap="80px" flexWrap="wrap">
               <VStack mt={8} align="flex-start" gap={5}>
-                <Box w="full" maxW="400px">
-                  <Input label="Código" height={10} ml={{ base: 0, md: 6 }} />
-                </Box>
+                <Input
+                  label="Código"
+                  mr="auto"
+                  height={10}
+                  error={formState.errors}
+                  {...register("items.code")}
+                />
                 <Flex
                   w="full"
-                  maxW="400px"
-                  gap={{ base: 4, md: "60px" }}
                   justify="space-between"
                   flexDirection={{
                     base: "column",
                     md: "row",
-                  }}>
+                  }}
+                  gap={{ base: 10, "2xl": 12 }}>
                   <Text as="label" fontSize="md" color="#4E5D66">
                     Cor:
                   </Text>
-                  <Stack spacing={3} w="full">
+                  <Stack w="full">
                     <Select
                       variant="filled"
                       placeholder="Selecionar categorias"
-                      color="#afa9a9">
-                      <option value="option1">Option 1</option>
-                      <option value="option2">Option 2</option>
-                      <option value="option3">Option 3</option>
+                      maxW="300px"
+                      color="#afa9a9"
+                      {...register("items.color")}>
+                      <option value="color1">color1</option>
+                      <option value="color2">color2</option>
                     </Select>
                   </Stack>
                 </Flex>
@@ -178,24 +288,32 @@ export default function AddProduct() {
                   <Text as="label" fontSize="md" color="#4E5D66">
                     Tamanho:
                   </Text>
-                  <Input
-                    maxW="125px"
-                    height={10}
-                    label="m x"
-                    labelPosition="right"
-                  />
-                  <Input
-                    maxW="125px"
-                    height={10}
-                    label="m x"
-                    labelPosition="right"
-                  />
-                  <Input
-                    maxW="125px"
-                    height={10}
-                    label="m"
-                    labelPosition="right"
-                  />
+                  <Flex w="125px" align="center" gap={4}>
+                    <Text order={1} flex="none">
+                      m x
+                    </Text>
+                    <Input
+                      height={10}
+                      type="number"
+                      error={formState.errors}
+                      {...register("items.size.width")}
+                    />
+                  </Flex>
+                  <Flex w="125px" align="center" gap={4}>
+                    <Text order={1} flex="none">
+                      m x
+                    </Text>
+                    <Input
+                      height={10}
+                      type="number"
+                      error={formState.errors}
+                      {...register("items.size.height")}
+                    />
+                  </Flex>
+                  <Flex w="125px" align="center" gap={4}>
+                    <Text order={1}>m</Text>
+                    <Input name="length" height={10} />
+                  </Flex>
                 </Flex>
               </VStack>
               <Flex gap={6} mt="-30px">
@@ -218,16 +336,48 @@ export default function AddProduct() {
               </Flex>
             </Flex>
           </Box>
+          <Flex w="full" justify="flex-end" gap={4} mt="50px">
+            <Link
+              as={NextLink}
+              bg="#c2c8cc"
+              w="80px"
+              h="40px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderRadius="md"
+              fontWeight="normal"
+              href="/dashboard">
+              Cancelar
+            </Link>
+            <Button
+              bg="#C0D7E5"
+              maxW="120px"
+              h={10}
+              fontWeight="normal"
+              type="submit">
+              Criar
+            </Button>
+          </Flex>
         </Box>
-        <Flex w="full" justify="flex-end" gap={4}>
-          <Button bg="#c2c8cc" maxW="120px" h={10} fontWeight="normal">
-            Cancelar
-          </Button>
-          <Button bg="#C0D7E5" maxW="120px" h={10} fontWeight="normal">
-            Criar
-          </Button>
-        </Flex>
       </VStack>
     </Box>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { "loomiapp.token": token } = parseCookies(ctx);
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};

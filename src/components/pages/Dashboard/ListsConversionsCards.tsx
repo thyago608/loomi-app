@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import { Card } from "components/Card";
 import { Carrousel } from "components/Carousel";
 import { useConversionsList } from "hooks/useConversionsList";
@@ -13,7 +13,16 @@ export function ListsConversionsCards({
   const { cards, isLoading } = useConversionsList();
 
   if (isLoading) {
-    return <p>carregando...</p>;
+    return (
+      <Text
+        display="flex"
+        w="full"
+        h="200px"
+        alignItems="center"
+        justifyContent="center">
+        Carregando..
+      </Text>
+    );
   }
 
   return isDesktop ? (
