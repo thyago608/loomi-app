@@ -1,76 +1,13 @@
-import {
-  Button,
-  VStack,
-  Box,
-  useMediaQuery,
-} from "@chakra-ui/react";
-import {
-  Equals,
-  HouseSimple,
-  Wrench,
-  Truck,
-  ShoppingCartSimple,
-  ChatCentered,
-  User,
-  Nut,
-} from "phosphor-react";
-import { SidebarItem } from "./SidebarItem";
+import { Button, VStack, Box, useMediaQuery } from "@chakra-ui/react";
+import { Equals } from "phosphor-react";
+import { SidebarLink } from "./SidebarLink";
 import { useState } from "react";
-
-const ICONS = [
-  {
-    icon: <HouseSimple size={25} color="#bebbbb" />,
-    path: "/dashboard",
-    name: "Início",
-  },
-  {
-    icon: <HouseSimple size={25} color="#bebbbb" />,
-    path: "/addProduct",
-    name: "Adicionar Produto",
-  },
-  {
-    icon: <Wrench size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Ajustes de perfil",
-  },
-  {
-    icon: <Truck size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Entrega",
-  },
-  {
-    icon: <ShoppingCartSimple size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Carrinho",
-  },
-  {
-    icon: <ShoppingCartSimple size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Compras",
-  },
-  {
-    icon: <ChatCentered size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Chat",
-  },
-  {
-    icon: <User size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Perfil",
-  },
-  {
-    icon: <Nut size={25} color="#bebbbb" />,
-    path: "/",
-    name: "Configurações de conta",
-  },
-];
+import { ICONS } from "./Icons";
 
 export function Sidebar() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
-  const [isLargerThan1440] = useMediaQuery(
-    "(min-width: 1440px)"
-  );
+  const [isLargerThan1440] = useMediaQuery("(min-width: 1440px)");
 
   function handleOpenSidebar() {
     setIsOpenSidebar((oldState) => !oldState);
@@ -103,11 +40,7 @@ export function Sidebar() {
       {(isOpenSidebar || isLargerThan1440) && (
         <VStack gap={2}>
           {ICONS.map((item) => (
-            <SidebarItem
-              key={item.name}
-              href={item.path}
-              icon={item.icon}
-            />
+            <SidebarLink key={item.name} href={item.path} icon={item.icon} />
           ))}
         </VStack>
       )}

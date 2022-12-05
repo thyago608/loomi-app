@@ -3,15 +3,12 @@ import { Link } from "@chakra-ui/react";
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
 
-interface SidebarItemProps {
+interface SidebarLinkProps {
   icon: ReactElement;
   href: string;
 }
 
-export function SidebarItem({
-  icon,
-  href,
-}: SidebarItemProps) {
+export function SidebarLink({ icon, href }: SidebarLinkProps) {
   const { asPath } = useRouter();
 
   return (

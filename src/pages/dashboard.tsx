@@ -20,13 +20,9 @@ import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 
 export default function Dashboard() {
-  const [isLargerThan1920] = useMediaQuery(
-    "(min-width: 1920px)"
-  );
+  const [isLargerThan1920] = useMediaQuery("(min-width: 1920px)");
 
-  const [isLargerThan1440] = useMediaQuery(
-    "(min-width: 1440px)"
-  );
+  const [isLargerThan1440] = useMediaQuery("(min-width: 1440px)");
 
   return (
     <Box
@@ -38,54 +34,36 @@ export default function Dashboard() {
       <Head>
         <title>Loomi | Dashboard</title>
       </Head>
-      <VStack
-        mt={10}
-        as="section"
-        align="flex-start"
-        gap={8}>
+      <VStack mt={10} as="section" align="flex-start" gap={8}>
         <Box as="header">
-          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
-            Funil de conversão
+          <Heading color="#525252" fontSize="2xl" pl="80px">
+            Início
           </Heading>
         </Box>
         <InitialSection isDesktop={isLargerThan1920} />
       </VStack>
 
-      <VStack
-        mt={10}
-        as="section"
-        align="flex-start"
-        gap={8}>
+      <VStack mt={10} as="section" align="flex-start" gap={8}>
         <Box as="header">
-          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
+          <Heading color="#5A4CA7" fontSize="2xl" pl="80px">
             Dashboard de vendas
           </Heading>
         </Box>
         <DashboardSales isDesktop={isLargerThan1440} />
       </VStack>
 
-      <VStack
-        mt={10}
-        as="section"
-        align="flex-start"
-        gap={8}>
+      <VStack mt={10} as="section" align="flex-start" gap={8}>
         <Box as="header">
-          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
+          <Heading color="#5A4CA7" fontSize="2xl" pl="80px">
             Funil de conversão
           </Heading>
         </Box>
-        <ListsConversionsCards
-          isDesktop={isLargerThan1920}
-        />
+        <ListsConversionsCards isDesktop={isLargerThan1920} />
       </VStack>
 
-      <VStack
-        mt={10}
-        gap={8}
-        as="section"
-        align="flex-start">
+      <VStack mt={10} gap={8} as="section" align="flex-start">
         <Box as="header">
-          <Heading color="#5A4CA7" fontSize="2xl" pl={8}>
+          <Heading color="#5A4CA7" fontSize="2xl" pl="80px">
             Perfil de usuário
           </Heading>
         </Box>
@@ -124,10 +102,7 @@ export default function Dashboard() {
             bg="#F3F5F6"
             borderColor="transparent"
             borderRadius="lg">
-            <Input
-              pr="4.5rem"
-              placeholder="Pesquisar produtos"
-            />
+            <Input pr="4.5rem" placeholder="Pesquisar produtos" />
             <InputRightElement width="4.5rem">
               <Button
                 bg="transparent"
@@ -135,11 +110,7 @@ export default function Dashboard() {
                 h="1.75rem"
                 size="sm"
                 leftIcon={
-                  <MagnifyingGlass
-                    size={20}
-                    weight="bold"
-                    color="#525252"
-                  />
+                  <MagnifyingGlass size={20} weight="bold" color="#525252" />
                 }
                 iconSpacing={0}
                 title="Pesquisar produto"
@@ -153,20 +124,19 @@ export default function Dashboard() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps =
-  async (ctx) => {
-    const { "loomiapp.token": token } = parseCookies(ctx);
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { "loomiapp.token": token } = parseCookies(ctx);
 
-    if (!token) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-      };
-    }
-
+  if (!token) {
     return {
-      props: {},
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
     };
+  }
+
+  return {
+    props: {},
   };
+};

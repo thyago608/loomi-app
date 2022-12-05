@@ -28,8 +28,7 @@ export function Card({
   bodyLabel,
 }: CardProps) {
   const isPrimary =
-    variant === "primary" &&
-    (type === "money" || type === "others");
+    variant === "primary" && (type === "money" || type === "others");
   const cardInformation = isPrimary
     ? {
         color: "#109E8E",
@@ -52,11 +51,7 @@ export function Card({
       py={4}
       justify="space-between">
       <CardHeader p={0}>
-        <Heading
-          size="sm"
-          color="#4E5D66"
-          mb={2}
-          fontWeight="bold">
+        <Heading size="sm" color="#4E5D66" mb={2} fontWeight="bold">
           {title}
         </Heading>
         <Text
@@ -73,9 +68,7 @@ export function Card({
         </Text>
       </CardHeader>
       <CardBody p={0}>
-        <Text color={cardInformation.color}>
-          {bodyLabel}
-        </Text>
+        <Text color={cardInformation.color}>{bodyLabel}</Text>
       </CardBody>
       <CardFooter p={0}>
         {type === "money" ? (
