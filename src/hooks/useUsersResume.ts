@@ -22,8 +22,6 @@ async function fetchUseResume(): Promise<ConversionResume> {
   return response.data;
 }
 
-type Gender = "male" | "female";
-
 export function useUsersResume() {
   const { data, isLoading } = useQuery(["users.resume"], fetchUseResume, {
     staleTime: 1000 * 60 * 5, // 5 minutes
@@ -59,10 +57,15 @@ export function useUsersResume() {
       return Number(sessionsPerSex?.female);
     }) ?? [0];
 
+  const transactionsPerClientSeries = transactionsPerClientType
+    ?.map((item) => item.value)
+    .reverse() ?? [0];
+
   return {
     transactionsPerAgeOptions,
     transactionsPerAgeSeries,
     genderSessionsSeries,
+    transactionsPerClientSeries,
     isLoading,
   };
 }

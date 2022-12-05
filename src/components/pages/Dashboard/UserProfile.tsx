@@ -5,7 +5,6 @@ import { useUsersResume } from "hooks/useUsersResume";
 import {
   graphGenderOptions,
   GraphTransactionsPerCustomerOptions,
-  GraphTransactionsPerCustomerSeries,
 } from "utils/graphs";
 
 export function UserProfile() {
@@ -13,6 +12,7 @@ export function UserProfile() {
     transactionsPerAgeOptions,
     transactionsPerAgeSeries,
     genderSessionsSeries,
+    transactionsPerClientSeries,
   } = useUsersResume();
 
   return (
@@ -39,7 +39,7 @@ export function UserProfile() {
       <Flex bg="#FFF" h={315} align="center" px={2} borderRadius="lg">
         <Graph
           options={GraphTransactionsPerCustomerOptions}
-          series={GraphTransactionsPerCustomerSeries}
+          series={transactionsPerClientSeries}
           type="donut"
           width={400}
           height={250}
