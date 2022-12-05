@@ -1,0 +1,58 @@
+import { ICard } from "types/Card";
+
+export const cards: ICard[] = [
+  {
+    variant: "primary",
+    type: "others",
+    title: "Sessões",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a ontem",
+    footerAmount: "",
+    footerLabel: "visualizações",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Vizualizações de Produto",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerAmount: "",
+    footerLabel: "visualizações",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Conversão para a página de produtos",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerAmount: "",
+    footerLabel: "%",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Adições ao carrinho",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerAmount: "",
+    footerLabel: "produtos",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Checkout - Frete",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerAmount: "",
+    footerLabel: "usuários",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Checkout - Email",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerAmount: "",
+    footerLabel: "usuários",
+  },
+];

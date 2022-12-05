@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "services/api";
-import { Product } from "types/Product";
+import { IProduct } from "types/Product";
 
 const LIMIT_PER_PAGE = 10;
 
 type ResponseFetchProducts = {
-  products: Product[];
+  products: IProduct[];
   totalPages: number;
 };
 
 async function getProducts(
   page: number
 ): Promise<ResponseFetchProducts> {
-  const productsListResponse = await api.get<Product[]>(
+  const productsListResponse = await api.get<IProduct[]>(
     "/products"
   );
   const productsTotalAmount =
@@ -22,7 +22,7 @@ async function getProducts(
     productsTotalAmount / LIMIT_PER_PAGE
   );
 
-  const products = await api.get<Product[]>(
+  const products = await api.get<IProduct[]>(
     `products?page=${page}&limit=${LIMIT_PER_PAGE}`
   );
 

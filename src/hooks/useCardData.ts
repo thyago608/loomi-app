@@ -1,14 +1,10 @@
 import { useQueries } from "@tanstack/react-query";
+import { ITicket } from "types/Ticket";
 import { api } from "services/api";
 
 type TiketType = "month" | "day";
 
 type DemandsMonth = "orders" | "sells";
-
-interface Ticket {
-  value: number;
-  growth: number;
-}
 
 interface Alert {
   type: string;
@@ -18,8 +14,8 @@ interface Alert {
 
 async function fetchTicketInformation(
   type: TiketType
-): Promise<Ticket> {
-  const response = await api.get<Ticket>(
+): Promise<ITicket> {
+  const response = await api.get<ITicket>(
     `/avg-ticket-${type}`
   );
 
@@ -34,7 +30,7 @@ async function fetchAlertInformation(): Promise<Alert[]> {
 
 async function fetchDemandsMonth(
   type: DemandsMonth
-): Promise<Ticket> {
+): Promise<ITicket> {
   const response = await api.get(`/${type}-month`);
 
   return response.data;

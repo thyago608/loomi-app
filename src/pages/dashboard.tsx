@@ -14,7 +14,7 @@ import { MagnifyingGlass } from "phosphor-react";
 import { ProductsTable } from "components/pages/Dashboard/ProductsTable";
 import { InitialSection } from "components/pages/Dashboard/InitalSection";
 import { DashboardSales } from "components/pages/Dashboard/DashboardSales";
-import { ConversationFunnel } from "components/pages/Dashboard/ConversationFunnel";
+import { ListsConversionsCards } from "components/pages/Dashboard/ListsConversionsCards";
 import { UserProfile } from "components/pages/Dashboard/UserProfile";
 import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
@@ -74,7 +74,9 @@ export default function Dashboard() {
             Funil de conversão
           </Heading>
         </Box>
-        <ConversationFunnel isDesktop={isLargerThan1920} />
+        <ListsConversionsCards
+          isDesktop={isLargerThan1920}
+        />
       </VStack>
 
       <VStack

@@ -1,5 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import { Card } from "components/Card";
+import { ICard } from "types/Card";
 import { Carrousel } from "components/Carousel";
 import { convertValueToReal } from "utils/convertValueToReal";
 import { useCardData } from "hooks/useCardData";
@@ -21,7 +22,7 @@ interface Card {
 export function InitialSection({
   isDesktop,
 }: InitialSectionProps) {
-  let cards: Card[] = [];
+  let cards: ICard[] = [];
   const queryResults = useCardData();
 
   const isLoading = queryResults.some(

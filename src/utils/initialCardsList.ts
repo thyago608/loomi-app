@@ -1,0 +1,56 @@
+import { ICard } from "types/Card";
+
+export const cards: ICard[] = [
+  {
+    variant: "primary",
+    type: "money",
+    title: "Ticket médio últimas 24h",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a ontem",
+    footerLabel: "",
+    footerAmount: "",
+  },
+  {
+    variant: "primary",
+    type: "money",
+    title: "Ticket médio mensal",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerLabel: "",
+    footerAmount: "",
+  },
+  {
+    variant: "secondary",
+    type: "others",
+    title: "",
+    subtitleAmount: 5,
+    footerLabel: "produtos",
+    footerAmount: "",
+  },
+  {
+    variant: "secondary",
+    type: "others",
+    title: "",
+    subtitleAmount: 5,
+    footerLabel: "produtos",
+    footerAmount: "",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Pedidos realizados no mês",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerLabel: "pedidos",
+    footerAmount: "",
+  },
+  {
+    variant: "primary",
+    type: "others",
+    title: "Pedidos vendidos no mês",
+    subtitleAmount: 0,
+    bodyLabel: "em relação a julho",
+    footerLabel: "produtos",
+    footerAmount: "",
+  },
+];
