@@ -26,5 +26,3 @@ export const graphGenderOptions: ApexOptions = {
   },
   colors: ["#F7C982", "#393C56"],
 };
-
-export const graphGenderSeries = [45, 55];

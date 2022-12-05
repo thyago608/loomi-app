@@ -1,17 +1,19 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Carrousel } from "components/Carousel";
 import { Graph } from "components/Graph";
 import { useUsersResume } from "hooks/useUsersResume";
 import {
   graphGenderOptions,
-  graphGenderSeries,
   GraphTransactionsPerCustomerOptions,
   GraphTransactionsPerCustomerSeries,
 } from "utils/graphs";
 
 export function UserProfile() {
-  const { transactionsPerAgeOptions, transactionsPerAgeSeries } =
-    useUsersResume();
+  const {
+    transactionsPerAgeOptions,
+    transactionsPerAgeSeries,
+    genderSessionsSeries,
+  } = useUsersResume();
 
   return (
     <Carrousel>
@@ -27,7 +29,7 @@ export function UserProfile() {
       <Flex bg="#FFF" h={315} align="center" px={2} borderRadius="lg">
         <Graph
           options={graphGenderOptions}
-          series={graphGenderSeries}
+          series={genderSessionsSeries}
           type="donut"
           width={400}
           height={250}

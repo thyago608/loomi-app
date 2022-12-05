@@ -3,6 +3,7 @@ import { ApexOptions } from "apexcharts";
 import { api } from "services/api";
 import { ITransaction } from "types/Transaction";
 import { graphForAgeOptions } from "utils/graphs";
+import { graphGenderOptions } from "utils/graphs";
 
 interface SessionPerSex {
   male: number;
@@ -20,6 +21,8 @@ async function fetchUseResume(): Promise<ConversionResume> {
 
   return response.data;
 }
+
+type Gender = "male" | "female";
 
 export function useUsersResume() {
   const { data, isLoading } = useQuery(["users.resume"], fetchUseResume, {
@@ -47,9 +50,19 @@ export function useUsersResume() {
     },
   ];
 
+  const genderSessionsSeries =
+    graphGenderOptions?.legend?.customLegendItems?.map((item) => {
+      if (item === "Masculino") {
+        return Number(sessionsPerSex?.male);
+      }
+
+      return Number(sessionsPerSex?.female);
+    }) ?? [0];
+
   return {
     transactionsPerAgeOptions,
     transactionsPerAgeSeries,
+    genderSessionsSeries,
     isLoading,
   };
 }
