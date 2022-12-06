@@ -34,6 +34,6 @@ describe("Component Header", () => {
     render(<Header />);
 
     const logo = screen.getByRole("link");
-    expect(logo).toHaveAttribute("href", "/");
+    expect(logo).toHaveAttribute("href", "/dashboard");
   });
 });

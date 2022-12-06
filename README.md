@@ -1,34 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+ <img src="/public/logo.png" alt="loomi" width="150px" height="150px"/>
+</p>
+<br>
 
-## Getting Started
+## Sobre
 
-First, run the development server:
+O projeto Looomi App, é um aplicação fictícia de controle de compras de um ecommerce.
+O mesmo foi desenvolvido dentro de um período de 7 dias, afim de cumprir o prazo estipulado pela empresa Loomi para um teste. <br><br>
+
+## Descrição do teste:
+
+A Loomi está desenvolvendo um projeto para um cliente que busca visualizar através
+de um dashboard os dados de compras realizadas no seu ecommerce.<br>
+Por serem dados importantes sobre o negócio, é imprescindível que apenas usuários autorizados
+possam acessar os dados, logo, haverá necessidade de realizar login.
+
+Você ficou responsável pela demanda e sua tarefa é projetar uma interface para atender as necessidades.
+
+Acesso aos layouts e endpoints de consulta:<br>
+https://xd.adobe.com/view/9b506aec-769c-41a4-8ac8-9aa66f11f43a-ce03/
+<br>
+
+## Desenvolvimento
+
+Aplicação foi desenvolvida de acordo com os critérios fornecidos para o teste.
+
+A aplicação foi desenvolvida utilizando o conceito de mobile first, logo a mesma está responsiva.
+
+Foram desenvolvidos testes unitários.<br><br>
+
+## Tecnologias utilizadas
+
+- [React](https://pt-br.reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Jest](https://jestjs.io/pt-BR/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [React Query](https://tanstack.com/query/v4)
+- [Phosphor-react](https://phosphoricons.com/)
+
+<br>
+
+## Sobre as Tecnologias Utilizadas:
+
+**React**: Biblioteca de criação de interfaces interativas.
+
+**Next.js**: O framework para React, que permite utilizar do recurso de geração de páginas estáticas, além de realizar as renderizações ao lado do servidor assim garantindo dados para SEO, além de trazer de forma nativa a possibilidade de realizar estilização em nível de componente, entre outras vantagens.
+
+**Typescript**: Superset para realizar a tipagem das informações.
+
+**Axios**: Cliente HTTP para o consumo de dados.
+
+**Jest e React Testing Library**: Biblioteca para realizar testes unitários.
+
+**React-Query**: Biblioteca que facilita busca, o armazenamento em cache, sincronização e a atualização do estado do servidor.
+
+**Phosphor React**: Biblioteca de ícones.
+
+<br>
+
+## Como baixar o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
+ # Clonar repositório
+ $ git clone https://github.com/thyago608/loomiapp
+
+ # Entrar no diretório da aplicação
+ $ cd loomiapp
+
+ # Baixar as dependências
+ $ npm install
+
+ # Executando a aplicação
+ $ npm run dev
+
+ # Acesse http://localhost:3000/ em seu navegador
+
+ # Executando testes unitários
+ $ npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Visite
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+[LoomiApp](https://loomi-app.vercel.app/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Desenvolvido por Thyago Ribeiro 👋
