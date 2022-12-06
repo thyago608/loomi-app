@@ -5,7 +5,6 @@ import { Sidebar } from "components/Sidebar";
 import { useRouter } from "next/router";
 import { AuthProvider } from "contexts/AuthContext";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { client } from "services/queryClient";
 import { theme } from "styles/theme";
 
@@ -20,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
           {asPath !== "/" && <Sidebar />}
           <Component {...pageProps} />
         </AuthProvider>
-        {/* <ReactQueryDevtools /> */}
       </ChakraProvider>
     </QueryClientProvider>
   );
