@@ -1,5 +1,5 @@
 <p align="center">
- <img src="/public/logo.png" alt="loomi" width="150px" height="150px"/>
+ <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQGwsGxOTrtcHw/company-logo_200_200/0/1654903802737?e=2147483647&v=beta&t=gutTe4ACrv4horYzMYK3aKUSoZAte52w4IN6U-Q9is8" alt="loomi" width="150px" height="150px"/>
 </p>
 <br>
 
