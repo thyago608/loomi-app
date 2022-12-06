@@ -5,7 +5,7 @@ import {
   InputRightElement,
   Button,
 } from "@chakra-ui/react";
-import { Input } from "components/InputBase";
+import { Input } from "components/Input";
 import { useForm } from "react-hook-form";
 import { Eye, EyeSlash } from "phosphor-react";
 import { useAuth } from "hooks/useAuth";

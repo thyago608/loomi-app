@@ -14,7 +14,7 @@ import {
   Input as ChakraInput,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { Input } from "components/InputBase";
+import { Input } from "components/Input";
 import { Plus } from "phosphor-react";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
