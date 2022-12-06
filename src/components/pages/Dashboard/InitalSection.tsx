@@ -1,5 +1,5 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import { Card } from "components/Card";
+import { Card } from "components";
 import { Carrousel } from "components/Carousel";
 import { useCardData } from "hooks/useCardData";
 
