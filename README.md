@@ -27,6 +27,8 @@ Aplicação foi desenvolvida de acordo com os critérios fornecidos para o teste
 
 A aplicação foi desenvolvida utilizando o conceito de mobile first, logo a mesma está responsiva.
 
+Após o usuário realizar o login, o token retornado da requisição é armazenado nos cookies. E o mesmo é reutilizados nas requisições seguintes na aplicação. 
+
 Foram desenvolvidos testes unitários.<br><br>
 
 ## Tecnologias utilizadas
@@ -38,6 +40,9 @@ Foram desenvolvidos testes unitários.<br><br>
 - [Jest](https://jestjs.io/pt-BR/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [React Query](https://tanstack.com/query/v4)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
+- [Nookies](https://www.npmjs.com/package/nookies)
 - [Phosphor-react](https://phosphoricons.com/)
 
 <br>
@@ -55,6 +60,12 @@ Foram desenvolvidos testes unitários.<br><br>
 **Jest e React Testing Library**: Biblioteca para realizar testes unitários.
 
 **React-Query**: Biblioteca que facilita busca, o armazenamento em cache, sincronização e a atualização do estado do servidor.
+
+**React Hook Form**: Biblioteca de validação de formulário.
+
+**Zod**: Biblioteca de validação de esquema TypeScript com inferência de tipo.
+
+**Nookies**: Biblioteca para a manipulação de cookies para Next.js: 
 
 **Phosphor React**: Biblioteca de ícones.
 
